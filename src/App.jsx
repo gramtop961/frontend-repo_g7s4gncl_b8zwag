@@ -1,25 +1,26 @@
-import { useState } from 'react'
+import Header from './components/Header'
+import Sidebar from './components/Sidebar'
+import StatsCards from './components/StatsCards'
+import ReportsChart from './components/ReportsChart'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
+    <div className="min-h-screen bg-neutral-50 dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100">
+      <Header />
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 grid grid-cols-12 gap-6">
+        <div className="col-span-12 lg:col-span-3">
+          <Sidebar />
         </div>
+        <main className="col-span-12 lg:col-span-9 space-y-6">
+          <section>
+            <h2 className="text-xl font-semibold mb-3">Overview</h2>
+            <StatsCards />
+          </section>
+          <section>
+            <h2 className="text-xl font-semibold mb-3">Reports</h2>
+            <ReportsChart />
+          </section>
+        </main>
       </div>
     </div>
   )
